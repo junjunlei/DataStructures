@@ -37,9 +37,9 @@ public class ArrayQueue {
     }
 
     /**
-     * 判断队列否为空
+     * 判断队列否满
      *
-     * @return true表示为空 false=表示不为空
+     * @return true表示满 false=表示不满
      */
     public boolean isFull() {
         return maxSize - 1 == rear;
@@ -91,9 +91,21 @@ public class ArrayQueue {
     public void showQueue() {
         if (isEmpty()) {
             System.out.println("队列数据为空，不能取数据");
+            return;
         }
         for(int i=0;i<arr.length;i++){
             System.out.printf("arr[%d]=%d\n",i,arr[i]);
         }
+    }
+
+    /**
+     * @return 显示队列头数据 ， 不是取数据
+     */
+    public int headQueue(){
+        //先判断队列是否为空
+        if (isEmpty()) {
+            throw new RuntimeException("队列为空，不能取数据");
+        }
+        return arr[front+1];
     }
 }
