@@ -70,7 +70,7 @@ public class MainTest {
     @Test
     public void test02() {
         //创建队列
-        CircelArrayQueue arrayQueue = new CircelArrayQueue(3);
+        CircleArrayQueue arrayQueue = new CircleArrayQueue(3);
         //接收用户输入
         char key;
         Scanner scan = new Scanner(System.in);

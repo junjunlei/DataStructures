@@ -6,7 +6,7 @@ package com.jerry.queue;
  * @author Jerry
  * @create 2019-12-23 20:09
  */
-public class CircelArrayQueue {
+public class CircleArrayQueue {
     /**
      * 队列最大容量
      */
@@ -24,7 +24,7 @@ public class CircelArrayQueue {
      */
     private int []arr;
 
-    public CircelArrayQueue(int arrMaxSize){
+    public CircleArrayQueue(int arrMaxSize){
         //预留一个空间
         this.maxSize=arrMaxSize;
         this.arr=new int[maxSize];
