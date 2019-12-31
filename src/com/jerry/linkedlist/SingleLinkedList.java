@@ -44,27 +44,27 @@ public class SingleLinkedList {
     public void addByOrder(HeroNode node) {
 
         //辅助变量 遍历
-        HeroNode temp=head;
+        HeroNode temp = head;
         //排名存在标识
-        boolean flag=false;
-        while (true){
-            if(temp.next == null){
+        boolean flag = false;
+        while (true) {
+            if (temp.next == null) {
                 break;
             }
-            if(temp.next.no>node.no){
+            if (temp.next.no > node.no) {
                 break;
-            }else if(temp.next.no==node.no){
+            } else if (temp.next.no == node.no) {
                 //节点已存在
-                flag=true;
+                flag = true;
                 break;
             }
-            temp=temp.next;
+            temp = temp.next;
         }
-        if(flag){
-            System.out.printf("准备插入的节点顺序%d已存在\n",node.no);
-        }else {
-            node.next=temp.next;
-            temp.next=node;
+        if (flag) {
+            System.out.printf("准备插入的节点顺序%d已存在\n", node.no);
+        } else {
+            node.next = temp.next;
+            temp.next = node;
         }
 
     }
@@ -88,5 +88,37 @@ public class SingleLinkedList {
             System.out.println(temp);
             temp = temp.next;
         }
+    }
+
+    /**
+     * 单链表反转（腾讯面试题）
+     */
+    public void reverseSingleLinkedList(HeroNode head) {
+        if (head.next == null || head.next.next == null) {
+            return;
+        }
+        //辅助遍历
+        HeroNode cur=head.next;
+        //当前节点的下一个节点
+        HeroNode next;
+        //辅助头节点
+        HeroNode tempHead=new HeroNode(0,"","");
+
+        while (cur!=null){
+            //记录当前节点的下一个节点
+            next=cur.next;
+            cur.next=tempHead.next;
+            tempHead.next=cur;
+            cur=next;
+        }
+        //实现反转
+        head.next=tempHead.next;
+    }
+
+    /**
+     * @return 返回头节点
+     */
+    public HeroNode getHead() {
+        return head;
     }
 }
