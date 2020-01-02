@@ -98,21 +98,21 @@ public class SingleLinkedList {
             return;
         }
         //辅助遍历
-        HeroNode cur=head.next;
+        HeroNode cur = head.next;
         //当前节点的下一个节点
         HeroNode next;
         //辅助头节点
-        HeroNode tempHead=new HeroNode(0,"","");
+        HeroNode tempHead = new HeroNode(0, "", "");
 
-        while (cur!=null){
+        while (cur != null) {
             //记录当前节点的下一个节点
-            next=cur.next;
-            cur.next=tempHead.next;
-            tempHead.next=cur;
-            cur=next;
+            next = cur.next;
+            cur.next = tempHead.next;
+            tempHead.next = cur;
+            cur = next;
         }
         //实现反转
-        head.next=tempHead.next;
+        head.next = tempHead.next;
     }
 
     /**
@@ -120,5 +120,63 @@ public class SingleLinkedList {
      */
     public HeroNode getHead() {
         return head;
+    }
+
+    /**
+     * 删除节点
+     *
+     * @param no 排序号
+     */
+    public void del(int no) {
+
+        HeroNode temp = head;
+        boolean flag = false;
+        while (true) {
+            if (temp.next == null) {
+                break;
+            }
+            if (temp.next.no == no) {
+                flag = true;
+                break;
+            }
+            temp=temp.next;
+        }
+        if (flag) {
+            //已找到
+            temp.next = temp.next.next;
+        } else {
+            System.out.printf("要删除的%d节点不存在\n", no);
+        }
+    }
+
+    /**
+     * 根据编号no修改节点 no编号不可变
+     *
+     * @param node
+     */
+    public void update(HeroNode node) {
+
+        if (head.next == null) {
+            System.out.println("链表为空");
+            return;
+        }
+        HeroNode temp = head.next;
+        boolean flag = false;
+        while (true) {
+            if (temp == null) {
+                break;
+            }
+            if (temp.no == node.no) {
+                flag = true;
+                break;
+            }
+         temp=temp.next;
+        }
+        if(flag){
+            temp.name=node.name;
+            temp.nickName=node.nickName;
+        }else{
+            System.out.printf("要删除的%d节点不存在\n", node.no);
+        }
     }
 }
