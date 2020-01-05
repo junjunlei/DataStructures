@@ -139,7 +139,7 @@ public class SingleLinkedList {
                 flag = true;
                 break;
             }
-            temp=temp.next;
+            temp = temp.next;
         }
         if (flag) {
             //已找到
@@ -170,13 +170,53 @@ public class SingleLinkedList {
                 flag = true;
                 break;
             }
-         temp=temp.next;
+            temp = temp.next;
         }
-        if(flag){
-            temp.name=node.name;
-            temp.nickName=node.nickName;
-        }else{
+        if (flag) {
+            temp.name = node.name;
+            temp.nickName = node.nickName;
+        } else {
             System.out.printf("要删除的%d节点不存在\n", node.no);
         }
+    }
+
+    /**
+     * 获取单链表节点个数（如果有头节点，不统计头节点）
+     *
+     * @param head
+     * @return
+     */
+    public static int getLength(HeroNode head) {
+        if (head.next == null) {
+            return 0;
+        }
+        int length = 0;
+        HeroNode temp = head.next;
+        while (temp != null) {
+            length++;
+            temp = temp.next;
+        }
+        return length;
+    }
+    //单链表新浪面试题
+
+    //获取单链表中倒数第k个节点
+
+    public  HeroNode getLastIndexNode(HeroNode head, int index) {
+        if(head.next==null){
+            return null;
+        }
+        //1.获取链表长度
+        int length = getLength(head);
+        //2.length-size 就是要找的节点 遍历即可
+        if(index<0||index>length){
+            return null;
+        }
+        //遍历
+        HeroNode temp=head.next;
+        for(int i=0;i<length-index;i++){
+            temp=temp.next;
+        }
+        return temp;
     }
 }

@@ -103,4 +103,32 @@ public class MainTest {
         System.out.println("修改之后");
         singleLinkedList.showList();
     }
+
+    /**
+     * 新浪面试题 返回单链表倒数第k个节点
+     */
+    @Test
+    public void test06() {
+        HeroNode hero1=new HeroNode(1,"宋江","及时雨");
+        HeroNode hero2=new HeroNode(2,"卢俊义","玉麒麟");
+        HeroNode hero3=new HeroNode(3,"吴用","智多星");
+        HeroNode hero4=new HeroNode(4,"林冲","豹子头");
+        HeroNode hero5=new HeroNode(5,"宋江","及时雨");
+        HeroNode hero6=new HeroNode(6,"卢俊义","玉麒麟");
+        HeroNode hero7=new HeroNode(7,"吴用","智多星");
+        HeroNode hero8=new HeroNode(8,"林冲","豹子头");
+        SingleLinkedList singleLinkedList=new SingleLinkedList();
+        singleLinkedList.add(hero1);
+        singleLinkedList.add(hero2);
+        singleLinkedList.add(hero3);
+        singleLinkedList.add(hero4);
+        singleLinkedList.add(hero5);
+        singleLinkedList.add(hero6);
+        singleLinkedList.add(hero7);
+        singleLinkedList.add(hero8);
+        System.out.println("所有节点");
+        singleLinkedList.showList();
+        System.out.println("倒数节点");
+        System.out.println(singleLinkedList.getLastIndexNode(singleLinkedList.getHead(),3));
+    }
 }
