@@ -15,6 +15,7 @@ public class ArrayStackDemo {
         stack.push(4);
         stack.push(5);
         stack.list();
+        System.out.println("==========出栈后==========");
         stack.pop();
         stack.list();
     }
