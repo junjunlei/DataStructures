@@ -44,11 +44,27 @@ class LinkList {
         node.next = first;
         first = node;
     }
+    public Node FindKthToTail(Node head,int k) {
+        if(head==null||k<0){
+            return null;
+        }
+        Node temp=head;
+        int length=0;
+        while(temp.next!=null){
+            length++;
+            temp=temp.next;
+        }
+        Node tmp=head;
+        for(int i=0;i<=length-k;i++){
+            tmp=tmp.next;
+        }
+        return tmp;
+    }
     public void addAtTail(int val) {
-        Node node=new Node(val,"");
+        Node node=new Node(val,"插到尾部");
         Node temp=this.first;
         while(true){
-            if(temp==null){
+            if(temp.next==null){
                 break;
             }
             temp=temp.next;
