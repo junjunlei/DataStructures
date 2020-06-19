@@ -1,5 +1,7 @@
 package com.jerry.javase.clone;
 
+import java.util.LinkedList;
+
 /**
  * 深拷贝
  * @author Jerry
@@ -25,6 +27,6 @@ public class DeepClone {
         System.out.println(person);
         //clone对象不受影响
         System.out.println(clone);
-
+        
     }
 }

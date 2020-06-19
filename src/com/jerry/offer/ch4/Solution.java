@@ -1,5 +1,8 @@
 package com.jerry.offer.ch4;
 
+import java.util.Arrays;
+import java.util.Stack;
+
 /**
  * 题4：
  *
