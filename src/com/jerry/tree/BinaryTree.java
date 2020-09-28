@@ -1,5 +1,7 @@
 package com.jerry.tree;
 
+import java.util.Stack;
+
 /**
  * 二叉树
  * <p>
@@ -25,6 +27,68 @@ public class BinaryTree {
 
     public BinaryTree(Node root) {
         this.root = root;
+    }
+
+
+    /**
+     * 后续遍历非递归
+     */
+    public void post(){
+        Stack<Node> stack1=new Stack<>();
+        Stack<Node> stack2=new Stack<>();
+        stack1.push(root);
+        while(!stack1.isEmpty()){
+            root = stack1.pop();
+            stack2.push(root);
+            if(root.getLeft()!=null){
+                stack1.push(root.getLeft());
+            }
+            if(root.getRight()!=null){
+                stack1.push(root.getRight());
+            }
+        }
+        while (!stack2.isEmpty()){
+            System.out.println(stack2.pop());
+        }
+
+    }
+
+    /**
+     * 中序遍历非递归
+     */
+    public void infix(){
+        Stack<Node> stack=new Stack<>();
+        while (!stack.isEmpty()||root!=null){
+            while (root!=null){
+                stack.push(root);
+                root=root.getLeft();
+            }
+            if(!stack.isEmpty()){
+                Node node = stack.pop();
+                System.out.println(node);
+                root=node.getRight();
+            }
+        }
+
+    }
+
+    /**
+     * 前序遍历非递归
+     */
+    public void pre(){
+        Stack<Node> stack=new Stack<>();
+        while (!stack.isEmpty()||root!=null){
+         while (root!=null){
+             System.out.println(root);
+             stack.push(root);
+             root=root.getLeft();
+         }
+         if(!stack.isEmpty()){
+             Node node = stack.pop();
+             root=node.getRight();
+         }
+        }
+
     }
 
     /**

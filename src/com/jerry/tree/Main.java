@@ -23,7 +23,14 @@ public class Main {
          *                       / \
          *                      4   5
          *
+         *                 1
+         *              2     3
          *
+         *           4       5     6
+         *              7        8
+         *
+         *              12473568
+         *              47215386
          */
         root.setLeft(node2);
         root.setRight(node3);
@@ -36,17 +43,25 @@ public class Main {
         BinaryTree binaryTree = new BinaryTree(root);
 
 
-        System.out.println("===============前序遍历=================");
-        //1 2 3 4 5
-        binaryTree.preOrder();
-
-        System.out.println("===============中序遍历=================");
-        //2 1 4 3 5
-        binaryTree.infixOrder();
+//        System.out.println("===============前序遍历=================");
+//        //1 2 3 4 5
+//        binaryTree.preOrder();
+//
+//        System.out.println("===============前序遍历=================");
+//        binaryTree.pre();
+//
+//
+//        System.out.println("===============中序遍历=================");
+//        //2 1 4 3 5
+//        binaryTree.infixOrder();
 
         System.out.println("===============后序遍历=================");
         //2 4 5 3 1
         binaryTree.postOrder();
+
+        System.out.println("===============后序遍历=================");
+
+        binaryTree.post();
 
 //        Node node = binaryTree.preOrderSearch(3);
 //        System.out.println(node);
